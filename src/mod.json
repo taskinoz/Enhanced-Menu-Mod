@@ -1,0 +1,12 @@
+{
+	"ApiId" : "piCdw8m2ZBKv9TDrq",
+	"Name" : "Enhanced Menu",
+	"Description" : "Adds more options to the settings menu",
+	"Authors" : [
+		"Tristan Kennedy"
+	],
+	"Contacts" : [
+		"tristan@taskinoz.com"
+	],
+	"Version" : "1.0"
+}
