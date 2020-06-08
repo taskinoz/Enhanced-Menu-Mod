@@ -1,27 +1,34 @@
-<p align="center" style="text-align:center"><img width="125" height="122" src="https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/icon.png" alt="Titanfall 2 - Enhanced Menu Mod" /></p>
+<p align="center" style="text-align:center"><img width="125" height="122" src="https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/icon.png" alt="Titanfall 2 - Enhanced Menu Mod" /></p>
 
 # Enhanced Menu Mod
 Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface
 
+## Download
+
+Get the Mod here:
+
+[ModDB](https://www.moddb.com/mods/enhanced-menu)
+[Releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases/tag/1.0)
+
 ## Screenshots
 
-![Main Menu with custom menu video](https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/menu-main.png)
+![Main Menu with custom menu video](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-main.png)
 
 Main Menu with the original Titanfall 2 menu video
 
-![Main Menu with no showcase content](https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/menu-main1.png)
+![Main Menu with no showcase content](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-main1.png)
 
 Main Menu with the showcase removed to declutter the menu
 
-![Cheats setting](https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/menu-cheats.png)
+![Cheats setting](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-cheats.png)
 
 New Cheat options that can be enabled
 
-![New custom keybinds](https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/menu-keys.png)
+![New custom keybinds](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-keys.png)
 
 Added keybinds for speedrunners and extra commands for fun
 
-![New HUD options](https://raw.githubusercontent.com/taskinoz/source-twitch-integration/master/assets/menu-hud.png)
+![New HUD options](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-hud.png)
 
 Added extra HUD display options for showing FPS, Position, Velocity, and Server Tick rate
 
