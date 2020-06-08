@@ -1,4 +1,4 @@
-<p align="center" style="text-align:center"><img width="125" height="122" src="https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/icon.jpg" alt="Titanfall 2 - Enhanced Menu Mod" /></p>
+<p align="center" style="text-align:center"><img width="125" height="122" src="https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/icon.png" alt="Titanfall 2 - Enhanced Menu Mod" /></p>
 
 # Enhanced Menu Mod
 Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface
