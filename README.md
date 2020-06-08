@@ -8,6 +8,7 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
 Get the Mod here:
 
 [ModDB](https://www.moddb.com/mods/enhanced-menu)
+
 [Releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases/tag/1.0)
 
 ## Screenshots
