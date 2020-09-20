@@ -127,13 +127,23 @@ resource/ui/menus/controls.menu
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 			navUp					SwchHoldToRodeo
-			navDown					BtnGamepadLayout
+			navDown					DemosMenu
 			ConVar					"sv_cheats"
 			list
 			{
 				"Disable" 0
 				"Enable" 1
 			}
+		}
+		DemosMenu
+		{
+			ControlName				RuiButton
+			InheritProperties		WideButton
+			pin_to_sibling			SwchEnableCheats
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+			navUp					SwchEnableCheats
+			navDown					BtnGamepadLayout
 		}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -317,7 +327,7 @@ resource/ui/menus/controls.menu
 			ControlName				ImagePanel
 			InheritProperties		SubheaderBackground
 			xpos					96
-			ypos					330
+			ypos					380
 		}
 		LblGamepadSubheaderText
 		{
@@ -338,7 +348,7 @@ resource/ui/menus/controls.menu
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 			xpos					-22
-			navUp					SwchHoldToRodeo
+			navUp					DemosMenu
 			navDown					SwchHoldToCrouch
 			tabPosition				2
 		}

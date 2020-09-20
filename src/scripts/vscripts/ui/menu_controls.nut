@@ -26,6 +26,10 @@ void function InitControlsMenu()
 	file.itemDescriptionBox = Hud_GetChild( menu, "LblMenuItemDescription" )
 
 #if PC_PROG
+	button = Hud_GetChild( menu, "DemosMenu" )
+	SetupButton( button, "Demos", "Edit demo settings" )
+	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "DemosMenu" ) ) )
+
 	button = Hud_GetChild( menu, "BtnMouseKeyboardBindings" )
 	SetupButton( button, "#KEY_BINDINGS", "#MOUSE_KEYBOARD_MENU_CONTROLS_DESC" )
 	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "MouseKeyboardBindingsMenu" ) ) )
@@ -151,6 +155,28 @@ void function OnOpenControlsMenu()
 }
 
 void function OnCloseControlsMenu()
+{
+	if ( IsConnected() )
+	{
+		int holdToRodeoState = GetConVarInt( "cl_hold_to_rodeo_enable" )
+		ClientCommand( "HoldToRodeo " + holdToRodeoState )
+	}
+
+	SavePlayerSettings()
+}
+
+void function OnOpenDemosMenu()
+{
+	UI_SetPresentationType( ePresentationType.NO_MODELS )
+
+	Hud_SetEnabled( file.autoSprintSetting, !IsAutoSprintForced() )
+
+	RefreshGamepadLayoutLabel()
+
+	SetStatesForCustomEnable()
+}
+
+void function OnCloseDemosMenu()
 {
 	if ( IsConnected() )
 	{
