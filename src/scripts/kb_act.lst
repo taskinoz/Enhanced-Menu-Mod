@@ -18,6 +18,8 @@
 "toggle sv_gravity 200 750"      "Low Gravity"
 "firstperson"           "First Person"
 "thirdperson; thirdperson_mayamode 1; thirdperson_screenspace 1"          "Third Person"
+"+camin"        "Third Person camera in"
+"+camout"       "Third Person camera out"
 "impulse 200" "Hide/Show Weapon"
 "blank"					"=========================="
 "blank"					"#KEY_BINDINGS_HEADER_ACTIONS"
