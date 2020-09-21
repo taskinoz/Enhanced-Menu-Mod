@@ -14,9 +14,4 @@
 			"Path": "ui/menu_demo_settings.nut",
 			"RunOn": "CLIENT || SERVER"
 		},
-		{
-			"Path": "resource/ui/menus/demos.menu",
-			"RunOn": "CLIENT || SERVER"
-		},
-	],
 }
