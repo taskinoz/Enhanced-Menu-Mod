@@ -8,5 +8,11 @@
 	"Contacts" : [
 		"tristan@taskinoz.com"
 	],
-	"Version" : "1.0"
+	"Version" : "1.0",
+	"CustomScripts": [
+		{
+			"Path": "ui/menu_demo_settings.nut",
+			"RunOn": "CLIENT || SERVER"
+		},
+	],
 }
