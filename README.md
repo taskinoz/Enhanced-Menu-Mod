@@ -3,13 +3,45 @@
 # Enhanced Menu Mod
 Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface
 
+# Features
+* Removed **Spotlight** and **Whats New** from the main menu
+* Added `sv_cheats` to the contols menu
+* Added HUD Options
+  * Bloom - `mat_disable_bloom`
+  * Show FPS - `cl_showfps`
+  * Show FPS Big - `showfps_enabled`
+  * Show Player Position - `cl_showpos`
+* Added new Keybinds
+  * Speedrunning
+    * Save/Load Quicksave 1
+    * Save/Load Quicksave 2
+    * Save/Load Quicksave 3
+    * Slow the game to 25%
+    * Speed the game up to 500%
+    * Reset all helmets
+    * Give yourself an EVA Shotgun
+    * Give yourself an EPG
+  * Demos
+    * Record Demo incrementally
+    * Record Demo
+    * Stop recording Demo
+  * Extras
+    * Toggle low gravity
+    * Set camera to First Person
+    * Set camera to Third Person
+    * Move Third Person camera in
+    * Move Third Person camera out
+    * Hide/Show weapon
+* Replaced Chinese subtitles with English
+* Replaced Chinese UI text with English
+
 ## Download
 
 Get the Mod here:
 
 [ModDB](https://www.moddb.com/mods/enhanced-menu)
 
-[Releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases/tag/1.0)
+[Releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases)
 
 ## Screenshots
 
@@ -37,6 +69,8 @@ Added extra HUD display options for showing FPS, Position, Velocity, and Server 
 
 ### Icepick
 
+**There are currenty some issues launching with icepick**
+
 One way to install this is to use Icepick, which you can get [HERE](https://titanfallmods.com/)
 
 1) Copy the Enhanced.Menu folder to the "Mods" folder inside icepick
@@ -45,4 +79,5 @@ One way to install this is to use Icepick, which you can get [HERE](https://tita
 
 ### VPK Mod
 
-The other way is to replace the files in the `englishclient_frontend.bsp.pak000_dir.vpk` in your Titanfall 2 installation with the ones found in `src`.
+1) The other way is to replace the files in the `englishclient_frontend.bsp.pak000_dir.vpk` in your Titanfall 2 installation with the ones found in `src`.
+2) Download the pre-compiled version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page
