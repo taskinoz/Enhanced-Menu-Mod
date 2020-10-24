@@ -968,7 +968,7 @@ Scripts:
 [
 	ui/menu_mouse_keyboard_bindings.nut
 	ui/menu_audio_settings.nut
-	ui/menu_demo_settings.nut
+	ui/menu_extra_settings.nut
 	ui/menu_video_settings.nut
 ]
 

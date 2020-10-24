@@ -26,9 +26,9 @@ void function InitControlsMenu()
 	file.itemDescriptionBox = Hud_GetChild( menu, "LblMenuItemDescription" )
 
 #if PC_PROG
-	button = Hud_GetChild( menu, "DemosMenu" )
-	SetupButton( button, "Demos", "Edit demo settings" )
-	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "DemosMenu" ) ) )
+	button = Hud_GetChild( menu, "ExtrasMenu" )
+	SetupButton( button, "Extras", "Enable and control hidden features" )
+	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "ExtrasMenu" ) ) )
 
 	button = Hud_GetChild( menu, "BtnMouseKeyboardBindings" )
 	SetupButton( button, "#KEY_BINDINGS", "#MOUSE_KEYBOARD_MENU_CONTROLS_DESC" )
@@ -165,7 +165,7 @@ void function OnCloseControlsMenu()
 	SavePlayerSettings()
 }
 
-void function OnOpenDemosMenu()
+void function OnOpenExtrasMenu()
 {
 	UI_SetPresentationType( ePresentationType.NO_MODELS )
 
@@ -176,7 +176,7 @@ void function OnOpenDemosMenu()
 	SetStatesForCustomEnable()
 }
 
-void function OnCloseDemosMenu()
+void function OnCloseExtrasMenu()
 {
 	if ( IsConnected() )
 	{

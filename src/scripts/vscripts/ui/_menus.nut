@@ -976,7 +976,7 @@ void function InitMenus()
 	AddMenu( "AdvocateGiftDialog", $"resource/ui/menus/dialog_advocate_gift.menu", InitAdvocateGiftDialog )
 
 	AddMenu( "ControlsMenu", $"resource/ui/menus/controls.menu", InitControlsMenu, "#CONTROLS" )
-	AddMenu( "DemosMenu", $"resource/ui/menus/demos.menu", InitDemosMenu, "Demos" )
+	AddMenu( "ExtrasMenu", $"resource/ui/menus/extras.menu", InitExtrasMenu, "Extras" )
 	AddMenu( "ControlsAdvancedLookMenu", $"resource/ui/menus/controls_advanced_look.menu", InitControlsAdvancedLookMenu, "#CONTROLS_ADVANCED_LOOK" )
 	AddMenu( "GamepadLayoutMenu", $"resource/ui/menus/gamepadlayout.menu", InitGamepadLayoutMenu )
 #if PC_PROG

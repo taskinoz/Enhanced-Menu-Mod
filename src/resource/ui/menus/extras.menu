@@ -1,4 +1,4 @@
-resource/ui/menus/demos.menu
+resource/ui/menus/extras.menu
 {
 	menu
 	{
@@ -26,7 +26,7 @@ resource/ui/menus/demos.menu
 		{
 			ControlName				Label
 			InheritProperties		MenuTitle
-			labelText				"Demos"
+			labelText				"Extras"
 		}
 
 		ImgTopBar
@@ -59,12 +59,29 @@ resource/ui/menus/demos.menu
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		// Demos subheader
+		ImgGeneralSubheaderBackground
+		{
+			ControlName				ImagePanel
+			InheritProperties		SubheaderBackground
+			xpos					96
+			ypos					160
+		}
+		LblGeneralSubheaderText
+		{
+			ControlName				Label
+			InheritProperties		SubheaderText
+			pin_to_sibling			ImgGeneralSubheaderBackground
+			pin_corner_to_sibling	LEFT
+			pin_to_sibling_corner	LEFT
+			labelText				"Demos"
+		}
+
 		SwchEnableDemos
 		{
 			ControlName				RuiButton
 			InheritProperties		SwitchButton
-			xpos					120
-			ypos					160
+			xpos					-22
 			tabPosition				1
 			style					DialogListButton
 			navUp					SwchSoundWithoutFocus
@@ -75,6 +92,9 @@ resource/ui/menus/demos.menu
 				"#SETTING_OFF"	0
 				"#SETTING_ON"	1
 			}
+			pin_to_sibling			ImgGeneralSubheaderBackground
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
 		}
 		SwchDemosWrite
 		{
@@ -179,7 +199,64 @@ resource/ui/menus/demos.menu
 			pin_to_sibling_corner	BOTTOM_LEFT
 			ypos					30
 			navUp					SwchDemosAutorecord
+			navDown					SwchEnableWallrunning
+		}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Extra Gameplay Options
+		ImgGameplaySubheaderBackground
+		{
+			ControlName				ImagePanel
+			InheritProperties		SubheaderBackground
+			xpos					96
+			ypos					530
+		}
+		LblGameplaySubheaderText
+		{
+			ControlName				Label
+			InheritProperties		SubheaderText
+			pin_to_sibling			ImgGameplaySubheaderBackground
+			pin_corner_to_sibling	LEFT
+			pin_to_sibling_corner	LEFT
+			labelText				"Gameplay"
+		}
+
+		SwchEnableWallrunning
+		{
+			ControlName				RuiButton
+			InheritProperties		SwitchButton
+			style					DialogListButton
+			xpos					-22
+			navUp					BtnMouseKeyboardBindings [!$GAMECONSOLE]
+			navDown					SwchEnableVerticalDodge
+			ConVar					"wallrun_enable"
+			list
+			{
+				"#SETTING_OFF"	0
+				"#SETTING_ON"	1
+			}
+
+			pin_to_sibling			ImgGameplaySubheaderBackground
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SwchEnableVerticalDodge
+		{
+			ControlName				RuiButton
+			InheritProperties		SwitchButton
+			style					DialogListButton
+			navUp					SwchEnableWallrunning
 			navDown					SwchEnableDemos
+			ConVar					"dodge_vertical_enable"
+			list
+			{
+				"#SETTING_OFF"	0
+				"#SETTING_ON"	1
+			}
+
+			pin_to_sibling			SwchEnableWallrunning
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
 		}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

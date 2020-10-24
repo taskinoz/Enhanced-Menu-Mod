@@ -1,5 +1,5 @@
 
-global function InitDemosMenu
+global function InitExtrasMenu
 
 struct
 {
@@ -8,13 +8,13 @@ struct
 	var classicMusicSwitch
 } file
 
-void function InitDemosMenu()
+void function InitExtrasMenu()
 {
-	var menu = GetMenu( "DemosMenu" )
+	var menu = GetMenu( "ExtrasMenu" )
 	file.menu = menu
 
-	AddMenuEventHandler( menu, eUIEvent.MENU_OPEN, OnOpenDemosMenu )
-	AddMenuEventHandler( menu, eUIEvent.MENU_CLOSE, OnCloseDemosMenu )
+	AddMenuEventHandler( menu, eUIEvent.MENU_OPEN, OnOpenExtrasMenu )
+	AddMenuEventHandler( menu, eUIEvent.MENU_CLOSE, OnCloseExtrasMenu )
 
 	var button
 
@@ -29,19 +29,22 @@ void function InitDemosMenu()
 	SetupButton( button, "#KEY_BINDINGS", "#MOUSE_KEYBOARD_MENU_CONTROLS_DESC" )
 	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "MouseKeyboardBindingsMenu" ) ) )
 
+	SetupButton( Hud_GetChild( menu, "SwchEnableWallrunning" ), "Enable Wallrunning", "Enables wall running." )
+	SetupButton( Hud_GetChild( menu, "SwchEnableVerticalDodge" ), "Enable Vertical Dodge", "Enables vertical dodge in Titans." )
+
 	AddEventHandlerToButtonClass( menu, "RuiFooterButtonClass", UIE_GET_FOCUS, FooterButton_Focused )
 
 	AddMenuFooterOption( menu, BUTTON_A, "#A_BUTTON_SELECT" )
 	AddMenuFooterOption( menu, BUTTON_B, "#B_BUTTON_BACK", "#BACK" )
 }
 
-void function OnOpenDemosMenu()
+void function OnOpenExtrasMenu()
 {
 	UI_SetPresentationType( ePresentationType.NO_MODELS )
 
 }
 
-void function OnCloseDemosMenu()
+void function OnCloseExtrasMenu()
 {
 	SavePlayerSettings()
 }
