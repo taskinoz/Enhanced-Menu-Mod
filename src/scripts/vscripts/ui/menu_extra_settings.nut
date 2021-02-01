@@ -30,7 +30,10 @@ void function InitExtrasMenu()
 	AddButtonEventHandler( button, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "MouseKeyboardBindingsMenu" ) ) )
 
 	SetupButton( Hud_GetChild( menu, "SwchEnableWallrunning" ), "Enable Wallrunning", "Enables wall running." )
+	SetupButton( Hud_GetChild( menu, "SwchEnableMantle" ), "Enable Automantle", "Enables the auto mantle animation." )
 	SetupButton( Hud_GetChild( menu, "SwchEnableVerticalDodge" ), "Enable Vertical Dodge", "Enables vertical dodge in Titans." )
+	SetupButton( Hud_GetChild( Hud_GetChild( menu, "SldPlayerDebounce" ), "BtnDropButton" ), "Player Control Debounce", "How long after respawning will certain player inputs be debounced for" )
+	SetupButton( Hud_GetChild( Hud_GetChild( menu, "SldCommandQue" ), "BtnDropButton" ), "Command Que", "Amount of commands that can be sent per tick" )
 
 	AddEventHandlerToButtonClass( menu, "RuiFooterButtonClass", UIE_GET_FOCUS, FooterButton_Focused )
 

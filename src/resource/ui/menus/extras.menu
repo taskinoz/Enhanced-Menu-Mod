@@ -84,7 +84,7 @@ resource/ui/menus/extras.menu
 			xpos					-22
 			tabPosition				1
 			style					DialogListButton
-			navUp					SwchSoundWithoutFocus
+			navUp					SldCommandQue
 			navDown					SwchDemosWrite
 			ConVar					"demo_enabledemos"
 			list
@@ -228,7 +228,7 @@ resource/ui/menus/extras.menu
 			style					DialogListButton
 			xpos					-22
 			navUp					BtnMouseKeyboardBindings [!$GAMECONSOLE]
-			navDown					SwchEnableVerticalDodge
+			navDown					SwchEnableMantle
 			ConVar					"wallrun_enable"
 			list
 			{
@@ -240,14 +240,14 @@ resource/ui/menus/extras.menu
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 		}
-		SwchEnableVerticalDodge
+		SwchEnableMantle
 		{
 			ControlName				RuiButton
 			InheritProperties		SwitchButton
 			style					DialogListButton
 			navUp					SwchEnableWallrunning
-			navDown					SwchEnableDemos
-			ConVar					"dodge_vertical_enable"
+			navDown					SwchEnableVerticalDodge
+			ConVar					"automantle_enable"
 			list
 			{
 				"#SETTING_OFF"	0
@@ -255,6 +255,80 @@ resource/ui/menus/extras.menu
 			}
 
 			pin_to_sibling			SwchEnableWallrunning
+			pin_corner_to_sibling	TOP_LEFT
+		pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SwchEnableVerticalDodge
+		{
+			ControlName				RuiButton
+			InheritProperties		SwitchButton
+			style					DialogListButton
+			navUp					SwchEnableMantle
+			navDown					SldPlayerDebounce
+			ConVar					"dodge_vertical_enable"
+			list
+			{
+				"#SETTING_OFF"	0
+				"#SETTING_ON"	1
+			}
+
+			pin_to_sibling			SwchEnableMantle
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SldPlayerDebounce
+		{
+			ControlName				SliderControl
+			InheritProperties		SliderControl
+			navUp					SwchEnableVerticalDodge
+			navDown					SldCommandQue
+			conCommand					"player_respawnInputDebounceDuration"
+			minValue				0.0
+			maxValue				2.0
+			stepSize				0.1
+			inverseFill				0
+			BtnDropButton
+			{
+				ControlName				RuiButton
+				InheritProperties		WideButton
+				clip 					0
+				autoResize				1
+				pinCorner				0
+				visible					1
+				enabled					1
+				style					SliderButton
+				command					""
+			}
+
+			pin_to_sibling			SwchEnableVerticalDodge
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SldCommandQue
+		{
+			ControlName				SliderControl
+			InheritProperties		SliderControl
+			navUp					SldPlayerDebounce
+			navDown					SwchEnableDemos
+			conCommand					"sv_usercmd_max_queued"
+			minValue				10
+			maxValue				400
+			stepSize				10
+			inverseFill				0
+			BtnDropButton
+			{
+				ControlName				RuiButton
+				InheritProperties		WideButton
+				clip 					0
+				autoResize				1
+				pinCorner				0
+				visible					1
+				enabled					1
+				style					SliderButton
+				command					""
+			}
+
+			pin_to_sibling			SldPlayerDebounce
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 		}
