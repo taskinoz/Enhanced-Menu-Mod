@@ -95,3 +95,8 @@
 "load fastany7" "Load NCS Save 7"
 "load fastany8" "Load NCS Save 8"
 "load fastany9" "Load NCS Save 9"
+"blank"					"=========================="
+"blank"					"No Cutscene Helmet Saves"
+"blank"					"=========================="
+"load fasthelms2" "Load NCS Helmet 1"
+"load fasthelms5" "Load NCS Helmet 2"
