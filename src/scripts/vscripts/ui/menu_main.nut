@@ -74,7 +74,7 @@ void function OnMainMenu_Open()
 	TryUnlockCollectiblesAchievement()
 	TryUnlockCompletedGameAchievements()
 
-	Hud_SetText( file.versionDisplay, "Enhanced v1.6\nBuild "+GetPublicGameVersion() )
+	Hud_SetText( file.versionDisplay, "Enhanced v1.7\nBuild "+GetPublicGameVersion() )
 	Hud_Show( file.versionDisplay )
 
 	thread UpdateTrialLabel()
@@ -172,9 +172,9 @@ void function UpdateDataCenterFooter( InputDef data )
 		if ( ping > 0 )
 		{
 			if ( IsControllerModeActive() )
-				SetFooterText( file.menu, index, Localize( "#X_BUTTON_DATACENTER_INFO", name, ping ) )
+				SetFooterText( file.menu, index, Localize( "#X_BUTTON_DATACENTER_INFO", "Hidden", ping ) )
 			else
-				SetFooterText( file.menu, index, Localize( "#DATACENTER_INFO", name, ping ) )
+				SetFooterText( file.menu, index, Localize( "#DATACENTER_INFO", "Hidden", ping ) )
 		}
 		else
 		{
