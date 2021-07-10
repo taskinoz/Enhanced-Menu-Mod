@@ -25,6 +25,9 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
     * Record Demo incrementally
     * Record Demo
     * Stop recording Demo
+    * Pause Demo
+    * Resume Demo
+    * Toggle Play/Pause Demo
   * Extras
     * Toggle low gravity
     * Set camera to First Person
@@ -32,8 +35,30 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
     * Move Third Person camera in
     * Move Third Person camera out
     * Hide/Show weapon
+  * No Cutscene Saves
+    * Load save 1-9 with 3 alternate saves
+  * No Cutscene Helmet Saves
+    * Load save 1 and 2
+* Added Extras Menu
+  * Demos
+    * Enable Demos
+    * Save Demos
+    * Interpolate Playback
+    * Demo record rate Single Player
+    * Demo record rate Multiplayer
+    * Key Bindings (shortcut)
+  * Gameplay
+    * Enable Wallrunning (sp)
+    * Enable Automantle (sp)
+    * Enable Vertical Dodge (sp)
+    * Player Control Debounce
+    * Command Que
+* Audio
+  * Loading Fade Time
+  * Loading Silence Time
 * Replaced Chinese subtitles with English
 * Replaced Chinese UI text with English
+* Removed crashes from Dev launch arguments `-dev +developer 1`
 
 ## Download
 
