@@ -90,9 +90,8 @@ Added keybinds for speedrunners and extra commands for fun
 
 Added extra HUD display options for showing FPS, Position, Velocity, and Server Tick rate
 
-![Demo's Menu](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-demos.jpg)
+![Demo's Menu](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-extras.jpg)
 
-**WIP**
 Added a menu for enabling and changing demo settings for recording single and multiplayer demos
 
 ## Installation
