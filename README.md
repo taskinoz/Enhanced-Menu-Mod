@@ -60,13 +60,13 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
 * Replaced Chinese UI text with English
 * Removed crashes from Dev launch arguments `-dev +developer 1`
 
-## Download
+## Installation
 
-Get the Mod here:
+1) Download the pre-compiled version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page or [ModDB(OLD)](https://www.moddb.com/mods/enhanced-menu)
 
-[ModDB](https://www.moddb.com/mods/enhanced-menu)
+2) Backup your `englishclient_frontend.bsp.pak000_dir.vpk` and copy the 2 `.vpk` files from the downloaded zip to your `Titanfall2/vpk` folder
 
-[Releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases)
+**The Icepick installation method has been deprecated in favour of a vpk mod**
 
 ## Screenshots
 
@@ -97,10 +97,3 @@ Added extra HUD display options for showing FPS, Position, Velocity, and Server 
 ![Extras Menu](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-extras.jpg)
 
 Added a menu for enabling and changing demo settings for recording single and multiplayer demos as well as turning of wallrunning and enabling titan jumping.
-
-## Installation
-
-1) The other way is to replace the files in the `englishclient_frontend.bsp.pak000_dir.vpk` in your Titanfall 2 installation with the ones found in `src`.
-2) Download the pre-compiled version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page
-
-**The Icepick installation method has been deprecated in favour of a vpk mod**
