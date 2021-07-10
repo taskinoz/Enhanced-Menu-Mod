@@ -80,33 +80,27 @@ Main Menu with the showcase removed to declutter the menu
 
 ![Cheats setting](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-cheats.jpg)
 
-New Cheat options that can be enabled
+New Cheat options that can be enabled as well as the extras menu
 
 ![New custom keybinds](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-keys.jpg)
 
 Added keybinds for speedrunners and extra commands for fun
 
+![Advanced Look Options with values](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-advanced-look.jpg)
+
+Shows the values for each setting on the Advanced Look Options
+
 ![New HUD options](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-hud.jpg)
 
 Added extra HUD display options for showing FPS, Position, Velocity, and Server Tick rate
 
-![Demo's Menu](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-extras.jpg)
+![Extras Menu](https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/menu-extras.jpg)
 
-Added a menu for enabling and changing demo settings for recording single and multiplayer demos
+Added a menu for enabling and changing demo settings for recording single and multiplayer demos as well as turning of wallrunning and enabling titan jumping.
 
 ## Installation
 
-### Icepick
-
-**There are currenty some issues launching with icepick**
-
-One way to install this is to use Icepick, which you can get [HERE](https://titanfallmods.com/)
-
-1) Copy the Enhanced.Menu folder to the "Mods" folder inside icepick
-
-2) Open Icepick and click "Launch Game"
-
-### VPK Mod
-
 1) The other way is to replace the files in the `englishclient_frontend.bsp.pak000_dir.vpk` in your Titanfall 2 installation with the ones found in `src`.
 2) Download the pre-compiled version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page
+
+**The Icepick installation method has been deprecated in favour of a vpk mod**
