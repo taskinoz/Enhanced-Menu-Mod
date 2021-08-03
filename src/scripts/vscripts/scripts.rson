@@ -677,6 +677,7 @@ Scripts:
 	client/cl_sp_objective.gnut
 	sp/cl_gamestate_sp.gnut
 	sp/cl_sp_hud.gnut
+	sp/cl_pilot_speedometer.gnut
 	sp/cl_sp_introscreen.gnut
 	titan/cl_titan_hints.gnut
 	sp/_cl_gauntlet.gnut

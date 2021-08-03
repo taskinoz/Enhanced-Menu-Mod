@@ -309,7 +309,7 @@ resource/ui/menus/extras.menu
 			ControlName				SliderControl
 			InheritProperties		SliderControl
 			navUp					SldPlayerDebounce
-			navDown					SwchEnableDemos
+			navDown					SwchEnableSpeedometer
 			conCommand					"sv_usercmd_max_queued"
 			minValue				10
 			maxValue				400
@@ -329,6 +329,25 @@ resource/ui/menus/extras.menu
 			}
 
 			pin_to_sibling			SldPlayerDebounce
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SwchEnableSpeedometer
+		{
+			ControlName				RuiButton
+			InheritProperties		SwitchButton
+			style					DialogListButton
+			navUp					SldCommandQue
+			navDown					SwchEnableDemos
+			ConVar					"password"
+			list
+			{
+				"#SETTING_OFF"	""
+				"Metric"	"metric"
+				"Imperial"	"imperial"
+			}
+
+			pin_to_sibling			SldCommandQue
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 		}
