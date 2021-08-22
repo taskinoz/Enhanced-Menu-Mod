@@ -8,18 +8,24 @@ struct
 
 void function ClPilotSpeedometer_Init()
 {
-	file.useMetric = false
 	if ( GetConVarString( "password" ) == "metric" )
+	{
 		file.useMetric = true
+	}
+	else if ( GetConVarString( "password" ) == "imperial" )
+	{
+		file.useMetric = false
+	}
+	else
+	{
+		return
+	}
 
 	AddCreatePilotCockpitCallback( CreatePilotSpeedometer )
 }
 
 void function CreatePilotSpeedometer( entity cockpit, entity player )
 {
-	if ( file.rui != null )
-		return
-
 	file.rui = CreateCockpitRui( $"ui/pilot_speedometer.rpak" )
 
 	RuiSetBool( file.rui, "useMetric", file.useMetric )

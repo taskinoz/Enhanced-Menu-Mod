@@ -24,7 +24,6 @@ void function RUITimerInit()
     //#if CLIENT
 		WaitFrame()
     //thread RUITimerUI_DelayedInit();
-		thread ClPilotSpeedometer_Init()
     //#endif
 
 }
@@ -75,6 +74,7 @@ void function ClSpHud_Init()
 		return
 
 	thread RUITimerInit()
+	thread ClPilotSpeedometer_Init()
 	AddCallback_OnPlayerLifeStateChanged( CallbackUpdatePlayerStatusCounts )
 
 	AddCreateMainHudCallback( SpMainHud )
