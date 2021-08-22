@@ -8,11 +8,11 @@
 if [ "$1" = "prod" ]
 then
   ## Run on Prod
-  cp -R ./src ./englishclient_mp_common.bsp.pak000_dir
+  cp -R ./src ./englishclient_frontend.bsp.pak000_dir
   wait
-  ./RSPNVPK englishclient_mp_common.bsp.pak000_dir.vpk -s
+  ./RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -s
   wait
-  rm -rf ./englishclient_mp_common.bsp.pak000_dir
+  rm -rf ./englishclient_frontend.bsp.pak000_dir
   mkdir "Enhanced Menu"
   mv ./*.vpk ./"Enhanced Menu"/
   zip -r "Enhanced Menu Compiled VPK.zip" ./"Enhanced Menu"/
