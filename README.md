@@ -1,5 +1,8 @@
 <p align="center" style="text-align:center"><img width="125" height="122" src="https://raw.githubusercontent.com/taskinoz/Enhanced-Menu-Mod/master/assets/icon.png" alt="Titanfall 2 - Enhanced Menu Mod" /></p>
 
+![VPK Build Status](https://github.com/taskinoz/Enhanced-Menu-Mod/actions/workflows/buildvpks.yml/badge.svg)
+
+
 # Enhanced Menu Mod
 Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface
 
