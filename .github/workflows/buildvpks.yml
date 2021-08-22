@@ -6,9 +6,8 @@ name: VPK Build
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths:
+      - 'changelog.md'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,12 +35,11 @@ jobs:
           wget ${{ secrets.LOCATIONS }}/dir/linux-x64.tar.gz
           tar -xf linux-x64.tar.gz
           sh build.sh prod
-          ls ./
       - name: Create Release
         uses: ncipollo/release-action@v1.8.6
         with:
           artifacts: "Enhanced Menu Compiled VPK.zip"
-          bodyfile: "build.md"
+          bodyfile: "changelog.md"
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Build Draft
           tag: pre-0.${{ github.run_number }}
