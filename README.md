@@ -56,12 +56,14 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
     * Enable Vertical Dodge (sp)
     * Player Control Debounce
     * Command Que
+    * Speedometer Settings (Works with the MP mod)
 * Audio
   * Loading Fade Time
   * Loading Silence Time
 * Replaced Chinese subtitles with English
 * Replaced Chinese UI text with English
 * Removed crashes from Dev launch arguments `-dev +developer 1`
+* Added Speedometer
 
 ## Installation
 
