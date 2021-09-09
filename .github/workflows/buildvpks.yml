@@ -34,6 +34,8 @@ jobs:
           wget ${{ secrets.LOCATIONS }}/dir/englishclient_mp_common.bsp.pak000_dir.vpk
           wget ${{ secrets.LOCATIONS }}/dir/linux-x64.tar.gz
           tar -xf linux-x64.tar.gz
+          ls
+          ls ..
           sh build.sh prod
       - name: Create Release
         uses: ncipollo/release-action@v1.8.6
