@@ -338,7 +338,7 @@ resource/ui/menus/extras.menu
 			InheritProperties		SwitchButton
 			style					DialogListButton
 			navUp					SldCommandQue
-			navDown					SwchEnableDemos
+			navDown					SwchEnableCommunities
 			ConVar					"password"
 			list
 			{
@@ -348,6 +348,24 @@ resource/ui/menus/extras.menu
 			}
 
 			pin_to_sibling			SldCommandQue
+			pin_corner_to_sibling	TOP_LEFT
+			pin_to_sibling_corner	BOTTOM_LEFT
+		}
+		SwchEnableCommunities
+		{
+			ControlName				RuiButton
+			InheritProperties		SwitchButton
+			style					DialogListButton
+			navUp					SwchEnableSpeedometer
+			navDown					SwchEnableDemos
+			ConVar					"communities_enabled"
+			list
+			{
+				"#SETTING_OFF"	0
+				"#SETTING_ON"	1
+			}
+
+			pin_to_sibling			SwchEnableSpeedometer
 			pin_corner_to_sibling	TOP_LEFT
 			pin_to_sibling_corner	BOTTOM_LEFT
 		}

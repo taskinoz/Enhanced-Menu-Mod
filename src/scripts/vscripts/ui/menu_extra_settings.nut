@@ -35,7 +35,9 @@ void function InitExtrasMenu()
 	SetupButton( Hud_GetChild( Hud_GetChild( menu, "SldPlayerDebounce" ), "BtnDropButton" ), "Player Control Debounce", "How long after respawning will certain player inputs be debounced for." )
 	SetupButton( Hud_GetChild( Hud_GetChild( menu, "SldCommandQue" ), "BtnDropButton" ), "Command Que", "Amount of commands that can be sent per tick." )
 	SetupButton( Hud_GetChild( menu, "SwchEnableSpeedometer" ), "Speedometer", "Enables a speedometer in single player." )
-
+	SetupButton( Hud_GetChild( menu, "SwchEnableCommunities" ), "Communities", "Enables community networks." )
+	// Force turn off communities
+	SetConVarBool( "communities_enabled", false )
 	AddEventHandlerToButtonClass( menu, "RuiFooterButtonClass", UIE_GET_FOCUS, FooterButton_Focused )
 
 	AddMenuFooterOption( menu, BUTTON_A, "#A_BUTTON_SELECT" )
