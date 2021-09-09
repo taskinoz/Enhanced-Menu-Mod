@@ -1,5 +1,3 @@
-Added syampuuh's speedometer to SP and added settings in the `Extras` menu to change the readout to either `mph`, `kph`, or `off`
+Added Community settings toggle to the Extras menu so you can Enable and Disable it.
 
-**Currently doesn't show up when in a titan**
-
-Added a Github workflow to automatically build VPK's
+Set the `communities_enabled` convar to off as default to negate the name length crash exploit in the Titafall networks.
