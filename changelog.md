@@ -1,3 +1,3 @@
-Added Community settings toggle to the Extras menu so you can Enable and Disable it.
+Removed the script that forces Communities to be turned off by default since Respawn has fixed the issue.
 
-Set the `communities_enabled` convar to off as default to negate the name length crash exploit in the Titafall networks.
+You can see more info about the original issue [here](https://twitter.com/Respawn/status/1435740468327899139?s=20)
