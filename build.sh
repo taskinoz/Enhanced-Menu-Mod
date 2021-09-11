@@ -10,7 +10,7 @@ then
   ## Run on Prod
   cp -R ./src ./englishclient_frontend.bsp.pak000_dir
   wait
-  ./RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -s
+  ./RSPNVPK ./englishclient_frontend.bsp.pak000_dir.vpk -s
   wait
   rm -rf ./englishclient_frontend.bsp.pak000_dir
   mkdir "Enhanced Menu"
