@@ -57,6 +57,8 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
     * Player Control Debounce
     * Command Que
     * Speedometer Settings (Works with the MP mod)
+  * Community
+    * Communities toggle for MP
 * Audio
   * Loading Fade Time
   * Loading Silence Time
