@@ -65,7 +65,7 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
 * Replaced Chinese subtitles with English
 * Replaced Chinese UI text with English
 * Removed crashes from Dev launch arguments `-dev +developer 1`
-* Added Speedometer
+* Added Speedometer (only to Single Player)
 
 ## Installation
 
