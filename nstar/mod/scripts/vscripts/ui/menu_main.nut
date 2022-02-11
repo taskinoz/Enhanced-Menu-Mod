@@ -37,7 +37,7 @@ void function InitMainMenu()
 	var titleRui = Hud_GetRui( Hud_GetChild( file.menu, "TitleRui" ) )
 	RuiSetImage( titleRui, "basicImage", $"rui/menu/main_menu/title")
 
-	file.versionDisplay = Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
+	file.versionDisplay = Hud_GetChild( menu, "versionDisplay" )
 	file.trialLabel = Hud_GetChild( menu, "TrialLabel" )
 
 	#if CONSOLE_PROG
@@ -79,7 +79,7 @@ void function OnMainMenu_Open()
 	TryUnlockCollectiblesAchievement()
 	TryUnlockCompletedGameAchievements()
 
-	Hud_SetText( file.versionDisplay, GetPublicGameVersion() )
+	Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
 	Hud_Show( file.versionDisplay )
 
 	thread UpdateTrialLabel()
