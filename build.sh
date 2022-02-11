@@ -35,6 +35,8 @@ fi
 mkdir ./Enhanced.Menu.Mod.Icepick
 cp -R ./src/* ./Enhanced.Menu.Mod.Icepick && cp -R ./Icepick/* ./Enhanced.Menu.Mod.Icepick
 rm ./Enhanced.Menu.Mod.Icepick/scripts/vscripts/scripts.rson
+## Temp fix for Icepick version
+rm ./Enhanced.Menu.Mod.Icepick/resource/r1_tchinese.txt
 mkdir ./Enhanced.Menu.Mod.Northstar
 cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
 rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
