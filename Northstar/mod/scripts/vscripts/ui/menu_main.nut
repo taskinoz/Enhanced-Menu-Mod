@@ -79,7 +79,7 @@ void function OnMainMenu_Open()
 	TryUnlockCollectiblesAchievement()
 	TryUnlockCompletedGameAchievements()
 
-	Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
+	Hud_SetText( file.versionDisplay, "Enhanced v1.14\nBuild "+GetPublicGameVersion() )
 	Hud_Show( file.versionDisplay )
 
 	thread UpdateTrialLabel()
