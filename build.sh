@@ -18,6 +18,10 @@ then
   zip -r "Enhanced Menu Compiled VPK.zip" ./"Enhanced Menu"/
   rm -rf ./"Enhanced Menu"/
 else
+  ## Remove previous builds
+  rm -rf Enhanced.Menu.Mod.Icepick && rm -rf Enhanced.Menu.Mod.Northstar
+  rm ./*.vpk
+
   ## Run on Dev
   cp ./dir/englishclient_frontend.bsp.pak000_dir.vpk ./ & cp -R ./src ./englishclient_frontend.bsp.pak000_dir
   wait
