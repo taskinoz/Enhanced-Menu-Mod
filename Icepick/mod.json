@@ -2,8 +2,11 @@
     "Name" : "Enhanced Menu Mod",
     "Description": "Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface",
     "Authors": [
-        "taskinoz"
-    ],
+  		"Tristan Kennedy"
+  	],
+  	"Contacts": [
+  		"tristan@taskinoz.com"
+  	],
     "Version": "1.13",
     "CustomScripts": [
         {
