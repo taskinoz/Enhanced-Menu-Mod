@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt install wget zip
           wget ${{ secrets.LOCATIONS }}/dir/englishclient_mp_common.bsp.pak000_dir.vpk
-          wget ${{ secrets.LOCATIONS }}/dir/linux-x64.tar.gz
+          wget -c $(curl -s https://api.github.com/repos/taskinoz/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
           tar -xf linux-x64.tar.gz
           ls
           ls ..
@@ -40,7 +40,7 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1.8.6
         with:
-          artifacts: "Enhanced Menu Compiled VPK.zip"
+          artifacts: "./*.zip"
           bodyfile: "changelog.md"
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Build Draft
