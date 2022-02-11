@@ -28,15 +28,12 @@ else
 fi
 
 ## Northstar and Icepick Changes
-mkdir ./Icepick
-cp -R ./src/* ./Icepick && cp -R ./ice/* ./Icepick
-rm ./Icepick/scripts/vscripts/scripts.rson
-mkdir ./Northstar
-cp -R ./src/ ./Northstar/mod && cp -R ./nstar/* ./Northstar
-rm ./Northstar/mod/scripts/vscripts/scripts.rson
-
-mv ./Icepick ./Enhanced.Menu.Mod.Icepick
-mv ./Northstar ./Enhanced.Menu.Mod.Northstar
+mkdir ./Enhanced.Menu.Mod.Icepick
+cp -R ./src/* ./Enhanced.Menu.Mod.Icepick && cp -R ./Icepick/* ./Enhanced.Menu.Mod.Icepick
+rm ./Enhanced.Menu.Mod.Icepick/scripts/vscripts/scripts.rson
+mkdir ./Enhanced.Menu.Mod.Northstar
+cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
+rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
 
 if [ "$1" = "prod" ]
 then
