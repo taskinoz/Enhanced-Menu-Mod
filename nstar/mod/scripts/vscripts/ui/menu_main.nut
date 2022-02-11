@@ -10,6 +10,7 @@ global function LaunchMP
 global function LaunchGame
 global function LaunchSPTrialMission
 global function GetUserSignInState
+global function NorthstarMasterServerAuthDialog
 
 struct
 {
@@ -18,6 +19,9 @@ struct
 	var trialLabel
 } file
 
+global const int NS_NOT_DECIDED_TO_SEND_TOKEN = 0
+global const int NS_AGREED_TO_SEND_TOKEN = 1
+global const int NS_DISAGREED_TO_SEND_TOKEN = 2
 
 void function InitMainMenu()
 {
@@ -26,13 +30,14 @@ void function InitMainMenu()
 	var menu = GetMenu( "MainMenu" )
 	file.menu = menu
 
+	ClientCommand( "exec autoexec_ns_client" )
 	AddMenuEventHandler( menu, eUIEvent.MENU_OPEN, OnMainMenu_Open )
 	AddMenuEventHandler( menu, eUIEvent.MENU_NAVIGATE_BACK, OnMainMenu_NavigateBack )
 
 	var titleRui = Hud_GetRui( Hud_GetChild( file.menu, "TitleRui" ) )
 	RuiSetImage( titleRui, "basicImage", $"rui/menu/main_menu/title")
 
-	file.versionDisplay = Hud_GetChild( menu, "versionDisplay" )
+	Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
 	file.trialLabel = Hud_GetChild( menu, "TrialLabel" )
 
 	#if CONSOLE_PROG
@@ -74,10 +79,22 @@ void function OnMainMenu_Open()
 	TryUnlockCollectiblesAchievement()
 	TryUnlockCompletedGameAchievements()
 
-	Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
+	Hud_SetText( file.versionDisplay, GetPublicGameVersion() )
 	Hud_Show( file.versionDisplay )
 
 	thread UpdateTrialLabel()
+
+	// do +map stuff
+	if ( Dev_CommandLineHasParm( "+map" ) )
+	{
+		SetConVarBool( "ns_auth_allow_insecure", true ) // good for testing
+		ClientCommand( "map " + Dev_CommandLineParmValue( "+map" ) )
+		Dev_CommandLineRemoveParm( "+map" )
+	}
+
+	// do agree to ns remote auth dialog
+	if ( !GetConVarBool( "ns_has_agreed_to_send_token" ) )
+		NorthstarMasterServerAuthDialog()
 
 #if PC_PROG
 	ActivatePanel( GetPanel( "MainMenuPanel" ) )
@@ -110,6 +127,50 @@ void function OnMainMenu_Open()
 		lastState = state
 
 		WaitFrame()
+	}
+}
+
+void function NorthstarMasterServerAuthDialog()
+{
+	// todo: this should be in localisation
+	DialogData dialogData
+	dialogData.header = "#DIALOG_TITLE_INSTALLED_NORTHSTAR"
+	dialogData.image = $"rui/menu/fd_menu/upgrade_northstar_chassis"
+	dialogData.message = "#AUTHENTICATION_AGREEMENT_DIALOG_TEXT"
+	AddDialogButton( dialogData, "#YES", NorthstarMasterServerAuthDialogAgree )
+	AddDialogButton( dialogData, "#NO", NorthstarMasterServerAuthDialogDisagree )
+	OpenDialog( dialogData )
+}
+
+void function NorthstarMasterServerAuthDialogAgree()
+{
+	int oldValue = GetConVarInt( "ns_has_agreed_to_send_token" )
+	SetConVarInt( "ns_has_agreed_to_send_token", NS_AGREED_TO_SEND_TOKEN )
+
+	if ( oldValue != 0 && oldValue != NS_AGREED_TO_SEND_TOKEN )
+	{
+		DialogData dialogData
+		dialogData.header = "#DIALOG_TITLE_INSTALLED_NORTHSTAR"
+		dialogData.image = $"rui/menu/fd_menu/upgrade_northstar_chassis"
+		dialogData.message = "#AUTHENTICATION_AGREEMENT_RESTART"
+		AddDialogButton( dialogData, "#OK" )
+		OpenDialog( dialogData )
+	}
+}
+
+void function NorthstarMasterServerAuthDialogDisagree()
+{
+	int oldValue = GetConVarInt( "ns_has_agreed_to_send_token" )
+	SetConVarInt( "ns_has_agreed_to_send_token", NS_DISAGREED_TO_SEND_TOKEN )
+
+	if ( oldValue != 0 && oldValue != NS_DISAGREED_TO_SEND_TOKEN )
+	{
+		DialogData dialogData
+		dialogData.header = "#DIALOG_TITLE_INSTALLED_NORTHSTAR"
+		dialogData.image = $"rui/menu/fd_menu/upgrade_northstar_chassis"
+		dialogData.message = "#AUTHENTICATION_AGREEMENT_RESTART"
+		AddDialogButton( dialogData, "#OK" )
+		OpenDialog( dialogData )
 	}
 }
 
@@ -584,22 +645,24 @@ void function DoGameNeedsToInstallDialog()
 
 void function UpdateTrialLabel()
 {
-	bool isTrialVersion
-	bool lastIsTrialVersion = Script_IsRunningTrialVersion()
+	//bool isTrialVersion
+	//bool lastIsTrialVersion = Script_IsRunningTrialVersion()
 
-	Hud_SetVisible( file.trialLabel, lastIsTrialVersion )
+	Hud_SetColor( file.trialLabel, 101, 109, 207, 255 )
+	Hud_SetText( file.trialLabel, "+ NORTHSTAR" )
+	Hud_SetVisible( file.trialLabel, true )
 
-	while ( GetTopNonDialogMenu() == file.menu )
-	{
-		isTrialVersion = Script_IsRunningTrialVersion()
-
-		if ( isTrialVersion != lastIsTrialVersion )
-			Hud_SetVisible( file.trialLabel, isTrialVersion )
-
-		lastIsTrialVersion = isTrialVersion
-
-		WaitFrame()
-	}
+	//while ( GetTopNonDialogMenu() == file.menu )
+	//{
+	//	isTrialVersion = Script_IsRunningTrialVersion()
+	//
+	//	if ( isTrialVersion != lastIsTrialVersion )
+	//		Hud_SetVisible( file.trialLabel, isTrialVersion )
+	//
+	//	lastIsTrialVersion = isTrialVersion
+	//
+	//	WaitFrame()
+	//}
 }
 
 void function OpenSinglePlayerDevMenu( var button )
