@@ -37,7 +37,7 @@ void function InitMainMenu()
 	var titleRui = Hud_GetRui( Hud_GetChild( file.menu, "TitleRui" ) )
 	RuiSetImage( titleRui, "basicImage", $"rui/menu/main_menu/title")
 
-	Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
+	file.versionDisplay = Hud_SetText( file.versionDisplay, "Enhanced v1.13\nBuild "+GetPublicGameVersion() )
 	file.trialLabel = Hud_GetChild( menu, "TrialLabel" )
 
 	#if CONSOLE_PROG
