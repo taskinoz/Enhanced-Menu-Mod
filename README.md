@@ -73,7 +73,21 @@ Adds more options to the settings menu, such as extra keybinds, cheats, hud enha
 
 2) Backup your `englishclient_frontend.bsp.pak000_dir.vpk` and copy the 2 `.vpk` files from the downloaded zip to your `Titanfall2/vpk` folder
 
-**The Icepick installation method has been deprecated in favour of a vpk mod**
+## Icepick
+
+1) Download the Icepick specific version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page
+
+2) Open the downloaded `Enhanced.Menu.Mod.Icepick.zip` file and copy the `Enhanced.Menu.Mod.Icepick` folder to you `Icepick/data/mods` folder.
+
+3) Launch Icepick.
+
+## Northstar
+
+1) Download the Northstar specific version from the [releases](https://github.com/taskinoz/Enhanced-Menu-Mod/releases) page
+
+2) Open the downloaded `Enhanced.Menu.Mod.Northstar.zip` file and copy the `Enhanced.Menu.Mod.Northstar` folder to you `Titanfall2/R2Northstar/mods` folder.
+
+3) Launch Northstar.
 
 ## Screenshots
 
