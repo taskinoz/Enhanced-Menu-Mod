@@ -24,6 +24,7 @@ void function InitExtrasMenu()
 	SetupButton( Hud_GetChild( menu, "SwchDemosUpdateRateSp" ), "Demo record rate Single Player", "Change the tick recording rate in Single Player." )
 	SetupButton( Hud_GetChild( menu, "SwchDemosUpdateRateMp" ), "Demo record rate Multiplayer", "Change the tick recording rate in Multiplayer." )
 	SetupButton( Hud_GetChild( menu, "SwchDemosAutorecord" ), "Auto Record", "Automatically record multiplayer matches as demos." )
+	SetupButton( Hud_GetChild( menu, "SwchThirdpersonFix" ), "Auto Record", "Fix the interpretation when using the thirdperson camera." )
 
 	button = Hud_GetChild( menu, "BtnMouseKeyboardBindings" )
 	SetupButton( button, "#KEY_BINDINGS", "#MOUSE_KEYBOARD_MENU_CONTROLS_DESC" )
