@@ -31,7 +31,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt install wget zip
-          wget ${{ secrets.LOCATIONS }}/dir/englishclient_mp_common.bsp.pak000_dir.vpk
+          wget ${{ secrets.LOCATIONS }}/pc/englishclient_mp_common.bsp.pak000_dir.vpk
           wget -c $(curl -s https://api.github.com/repos/taskinoz/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
           tar -xf linux-x64.tar.gz
           ls
