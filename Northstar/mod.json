@@ -5,12 +5,12 @@
     "Authors": [
         "taskinoz"
     ],
-    "Version": "1.13",
+    "Version": "1.15",
     "ConVars": [
   		{
   			"Name": "emm_speedometer",
   			"DefaultValue": ""
-  		},
+  		}
     ],
     "Scripts": [
         {
