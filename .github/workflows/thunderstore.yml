@@ -3,8 +3,7 @@ name: Publish package
 on:
   release:
     types: [published] # run when a new release is published
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+
 env:
   name: Wallrunning Titans # Edit this if the package name differs from the repo name
 
@@ -20,6 +19,13 @@ jobs:
         run: |
           mv ./Northstar/mod.json ./
           rm ./Icepick/mod.json
+          mkdir ./Enhanced.Menu.Mod.Northstar
+          mv ./assets/thunderstore-icon.png ./icon.png
+          cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
+          rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
+          rm -rf src
+          rm -rf Northstar
+          rm -rf Icepick
           if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
             echo "::debug::${{env.cleanVersion}}"
             echo "::debug::$(cat $(find ./ -name mod.json ))"
@@ -32,12 +38,6 @@ jobs:
     steps:
       - name: Get clean version # Duplicating code is cool, actually
         run: |
-          mkdir ./Enhanced.Menu.Mod.Northstar
-          cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
-          rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
-          rm -rf src
-          rm -rf Northstar
-          rm -rf Icepick
           echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Upload Thunderstore Package
