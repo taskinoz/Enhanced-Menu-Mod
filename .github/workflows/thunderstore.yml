@@ -24,9 +24,9 @@ jobs:
           mv ./assets/thunderstore-icon.png ./icon.png
           cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
           rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
-          rm -rf src
-          rm -rf Northstar
-          rm -rf Icepick
+          rm -rf ./src
+          rm -rf ./Northstar
+          rm -rf ./Icepick
           if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
             echo "::debug::${{env.cleanVersion}}"
             echo "::debug::$(cat $(find ./ -name mod.json ))"
