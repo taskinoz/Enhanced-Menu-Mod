@@ -3,7 +3,8 @@ name: Publish package
 on:
   release:
     types: [published] # run when a new release is published
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 env:
   name: Wallrunning Titans # Edit this if the package name differs from the repo name
 
