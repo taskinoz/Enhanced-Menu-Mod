@@ -1,4 +1,3 @@
-Re-enabled the code to disable Communities by default since the exploit causing the crash wasn't fully patched by Respawn.
+Re-enabled communities by default. The bug has been fixed on Respawn side.
 
-Added seperate builds for Icepick and Northstar.
-The specific changes for each platform can be found in /Icepick and /Northstar respectively.
+Added thirdperson fix in the Extras menu that stops the wird animations when using thirdperson.
