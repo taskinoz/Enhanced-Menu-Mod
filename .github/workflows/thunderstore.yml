@@ -17,6 +17,7 @@ jobs:
           echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
       - name: Check that version matches
         run: |
+          mv ./Northstar/mod.json ./
           if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
             echo "::debug::${{env.cleanVersion}}"
             echo "::debug::$(cat $(find ./ -name mod.json ))"
@@ -30,6 +31,7 @@ jobs:
       - name: Get clean version # Duplicating code is cool, actually
         run: |
           mkdir ./Enhanced.Menu.Mod.Northstar
+          mv ./assets/thunderstore-icon.png
           cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
           rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
           rm -rf src
