@@ -5,7 +5,7 @@
     "Authors": [
         "taskinoz"
     ],
-    "Version": "1.15",
+    "Version": "1.15.0",
     "ConVars": [
   		{
   			"Name": "emm_speedometer",
