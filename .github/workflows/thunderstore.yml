@@ -31,9 +31,7 @@ jobs:
     steps:
       - name: Get clean version # Duplicating code is cool, actually
         run: |
-          ls
           mkdir ./Enhanced.Menu.Mod.Northstar
-          mv ./assets/thunderstore-icon.png ./icon.png
           cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
           rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
           rm -rf src
