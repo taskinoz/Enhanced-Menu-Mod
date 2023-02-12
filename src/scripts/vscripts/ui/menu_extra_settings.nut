@@ -38,7 +38,8 @@ void function InitExtrasMenu()
 	SetupButton( Hud_GetChild( menu, "SwchEnableSpeedometer" ), "Speedometer", "Enables a speedometer in single player." )
 	SetupButton( Hud_GetChild( menu, "SwchEnableCommunities" ), "Communities", "Enables community networks." )
 	// Force turn off communities
-	SetConVarBool( "communities_enabled", false )
+	// Re-enable if communities break
+	// SetConVarBool( "communities_enabled", false )
 	AddEventHandlerToButtonClass( menu, "RuiFooterButtonClass", UIE_GET_FOCUS, FooterButton_Focused )
 
 	AddMenuFooterOption( menu, BUTTON_A, "#A_BUTTON_SELECT" )
