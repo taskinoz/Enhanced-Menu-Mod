@@ -12,6 +12,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: write # needed to create the draft release
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,7 +25,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # - name: Original RSPNVPK download
       #   run: wget -c $(curl -s https://api.github.com/repos/mrsteyk/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
@@ -37,12 +40,17 @@ jobs:
           ls
           ls ..
           sh build.sh prod
+      - name: Get version
+        run: echo "version=$(jq -r .Version Northstar/mod.json)" >> $GITHUB_ENV
       - name: Create Release
-        uses: ncipollo/release-action@v1.8.6
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "./*.zip"
-          bodyfile: "changelog.md"
+          bodyFile: "changelog.md"
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Build Draft
-          tag: pre-0.${{ github.run_number }}
+          name: v${{ env.version }}
+          # Tag must match mod.json so the Thunderstore workflow accepts it when the draft is published
+          tag: v${{ env.version }}
+          commit: ${{ github.sha }}
           draft: true
+          allowUpdates: true

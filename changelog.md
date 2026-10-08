@@ -1,3 +1,5 @@
-Re-enabled communities by default. The bug has been fixed on Respawn side.
+Added a "Walk" (`+walk`) entry to the keybinds menu.
 
-Added thirdperson fix in the Extras menu that stops the wird animations when using thirdperson.
+Fixed the mod.json versions for Northstar and Icepick so mod managers stop showing an update after installing.
+
+Fixed the automatic Thunderstore upload.

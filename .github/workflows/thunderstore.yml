@@ -5,56 +5,62 @@ on:
     types: [published] # run when a new release is published
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 env:
-  name: Wallrunning Titans # Edit this if the package name differs from the repo name
+  modName: EnhancedMenuMod # Package name on Thunderstore
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Get clean version
-        run: |
-          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
-      - name: Check that version matches
-        run: |
-          mv ./Northstar/mod.json ./
-          rm ./Icepick/mod.json
-          mkdir ./Enhanced.Menu.Mod.Northstar
-          mv ./assets/thunderstore-icon.png ./icon.png
-          cp -R ./src/ ./Enhanced.Menu.Mod.Northstar/mod && cp -R ./Northstar/* ./Enhanced.Menu.Mod.Northstar
-          rm ./Enhanced.Menu.Mod.Northstar/mod/scripts/vscripts/scripts.rson
-          rm -rf ./src
-          rm -rf ./Northstar
-          rm -rf ./Icepick
-          if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
-            echo "::debug::${{env.cleanVersion}}"
-            echo "::debug::$(cat $(find ./ -name mod.json ))"
-            echo "::error::Version in mod.json does not match tag version"
-            exit 1
-          fi
   publish:
     runs-on: ubuntu-latest
-    needs: verify
     steps:
-      - name: Get clean version # Duplicating code is cool, actually
+      - uses: actions/checkout@v4
+
+      - name: Get and check version
         run: |
-          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
-      - uses: actions/checkout@v3
+          version=$(jq -r .Version Northstar/mod.json)
+          icepickVersion=$(jq -r .Version Icepick/mod.json)
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Northstar/mod.json version '$version' must be in the format X.Y.Z"
+            exit 1
+          fi
+          if [[ "$icepickVersion" != "$version" ]]; then
+            echo "::error::Icepick/mod.json version ($icepickVersion) does not match Northstar/mod.json version ($version)"
+            exit 1
+          fi
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            tagVersion="${{ github.event.release.tag_name }}"
+            tagVersion="${tagVersion#v}"
+            if [[ "$tagVersion" != "$version" ]]; then
+              echo "::error::Release tag version ($tagVersion) does not match mod.json version ($version)"
+              exit 1
+            fi
+          fi
+          echo "cleanVersion=$version" >> $GITHUB_ENV
+
+      - name: Build package
+        run: |
+          mkdir -p ./dist/mod
+          cp -R ./src/* ./dist/mod/
+          cp -R ./Northstar/* ./dist/
+          rm ./dist/mod/scripts/vscripts/scripts.rson
+          cp ./assets/thunderstore-icon.png ./dist/icon.png
+          cp ./README.md ./dist/README.md
+          cp ./changelog.md ./dist/CHANGELOG.md
+          find ./dist -type f
+
       - name: Upload Thunderstore Package
-        uses: GreenTF/upload-thunderstore-package@v2.2
+        uses: GreenTF/upload-thunderstore-package@v4.3
         with:
+          path: dist
           community: northstar
           # Name of the team to publish the mod under
-          # This should be modified if your github username is different than your team name on Thunderstore
-          namespace: ${{ github.repository_owner }} # <------ DOUBLE CHECK THIS
-          # Name of the package
-          name: EnhancedMenuMod # This can be modified if the package name differs from the repo name
-          # Package version to publish
-          version: ${{ env.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
-          # Description of the mod
+          namespace: ${{ github.repository_owner }}
+          name: ${{ env.modName }}
+          version: ${{ env.cleanVersion }}
           description: Adds more options to the settings menu, such as extra keybinds, cheats, hud enhancements and cleaner interface
           # Thunderstore API token
           token: ${{ secrets.TS_KEY }}
-          # Directory to wrap the contents of the repo in
-          wrap: mods/${{ github.repository_owner }}.${{ env.name }} # This will wrap your Author.ModName folder in a mods/ folder before publishing
+          # Set explicitly, the action picks an empty repository URL when this is left out
+          repo: https://thunderstore.io
+          # Wraps the mod in mods/Author.ModName so Northstar can load it
+          wrap: mods/${{ github.repository_owner }}.${{ env.modName }}

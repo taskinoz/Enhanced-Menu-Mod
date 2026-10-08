@@ -58,6 +58,7 @@
 "+moveleft"				"#MOVE_LEFT"
 "+moveright"			"#MOVE_RIGHT"
 "+speed"				"#SPRINT"
+"+walk"				"Walk"
 "+ability 3"			"#JUMP_PILOT_DASH_TITAN"
 "+duck"					"#CROUCH"
 "+toggle_duck"			"#TOGGLE_CROUCH"
